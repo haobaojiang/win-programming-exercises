@@ -103,7 +103,7 @@ void OnThreadNotify(HANDLE processId, HANDLE threadId, BOOLEAN isCreate) {
 	}
 
 	HANDLE parentPid = nullptr;
-	auto status = GetProcessParentId(processId, &parentPid);
+	auto status = Utility::Process::GetProcessParentId(processId, &parentPid);
 	if (!NT_SUCCESS(status)) {
 		KdPrint(("failed to get parentId, threadId:%d ,status : (0x%08X)\n", threadId, status));
 		return;
